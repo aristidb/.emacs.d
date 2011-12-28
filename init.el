@@ -20,7 +20,9 @@
  )
 
 ; Start the server for emacsclient.
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ; Clipboard
 (setq x-select-enable-clipboard t)
