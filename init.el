@@ -6,7 +6,6 @@
 
 ; Load utility functions
 (load (concat user-emacs-directory "elisp-utils/elisp-utils.el"))
-
 ; Keys
 (when (eq system-type 'darwin)
    (setq ns-command-modifier 'meta)
@@ -20,6 +19,8 @@
 
 ; Add some paths for executables
 (add-exec-paths '("~/.cabal/bin"))
+(when (eq system-type 'darwin)
+  (add-exec-paths '("/usr/local/bin")))
 
 ; Section for Custom. Emacs takes care of this. ;-)
 
@@ -135,3 +136,10 @@
 
 (require 'haskell-align-imports)
 ;(define-key 'haskell-mode-map (kbd "C-c .") 'haskell-align-imports)
+
+; Magit
+(add-to-list 'load-path (concat user-emacs-directory "magit"))
+(require 'magit)
+; Allow git config to demand magit extensions.
+(add-hook 'magit-mode-hook 'magit-load-config-extensions)
+(global-set-key (kbd "C-x g") 'magit-status)
