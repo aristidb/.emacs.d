@@ -1,6 +1,9 @@
 ;;; Init.el
 ;;; Author: Aristid Breitkreuz <aristidb@googlemail.com>
 
+; Global load paths
+(add-to-list 'load-path user-emacs-directory)
+
 ; Section for Custom. Emacs takes care of this. ;-)
 
 (custom-set-variables
@@ -102,3 +105,14 @@
 
 ; ESS
 (load (concat user-emacs-directory "ess-5.14/lisp/ess-site.el"))
+
+; Haskell
+(load (concat user-emacs-directory "haskell-mode-2.8.0/haskell-site-file"))
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
+(require 'haskell-align-imports)
+;(define-key 'haskell-mode-map (kbd "C-c .") 'haskell-align-imports)
