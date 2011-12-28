@@ -4,6 +4,11 @@
 ; Global load paths
 (add-to-list 'load-path user-emacs-directory)
 
+; Keys
+(when (eq system-type 'darwin)
+   (setq ns-command-modifier 'meta)
+   (setq ns-alternate-modifier 'none))
+
 ; Add some paths for executables
 (defun add-exec-paths (paths)
   (let ((expanded (mapcar 'expand-file-name paths)))
