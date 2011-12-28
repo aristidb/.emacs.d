@@ -86,3 +86,6 @@
 ; Org Mode
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+; ESS
+(load (concat user-emacs-directory "ess-5.14/lisp/ess-site.elc"))
