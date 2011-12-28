@@ -4,12 +4,10 @@
 ; Global load paths
 (add-to-list 'load-path user-emacs-directory)
 
-; Add some paths for executables
-(defun add-exec-paths (paths)
-  (let ((expanded (mapcar 'expand-file-name paths)))
-    (setenv "PATH" (concat (mapconcat 'identity expanded ":") ":" (getenv "PATH")))
-    (setq exec-path (append expanded exec-path))))
+; Load utility functions
+(load (concat user-emacs-directory "elisp-utils/elisp-utils.el"))
 
+; Add some paths for executables
 (add-exec-paths '("~/.cabal/bin"))
 
 ; Section for Custom. Emacs takes care of this. ;-)
