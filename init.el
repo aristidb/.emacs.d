@@ -1,6 +1,10 @@
 ;;; Init.el
 ;;; Author: Aristid Breitkreuz <aristidb@googlemail.com>
 
+; Personal info
+(setq user-full-name "Aristid Breitkreuz")
+(setq user-mail-address "aristidb@googlemail.com")
+
 ; Global load paths
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path (concat user-emacs-directory "config/"))
