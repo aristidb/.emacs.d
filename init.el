@@ -149,7 +149,7 @@
 (require 'gist)
 
 ; Backups
-(push '("." . (concat user-emacs-directory "backups")) backup-directory-alist)
+(push (cons "." (concat user-emacs-directory "backups")) backup-directory-alist)
 
 ; Better buffer naming
 (require 'uniquify)
