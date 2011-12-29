@@ -7,3 +7,6 @@
 [submodule "magit"]
 	path = magit
 	url = https://github.com/magit/magit.git
+[submodule "solarized-emacs"]
+	path = solarized-emacs
+	url = https://github.com/bbatsov/solarized-emacs.git

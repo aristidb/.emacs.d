@@ -169,3 +169,8 @@
                                             (if time-zone " (")
                                             time-zone
                                             (if time-zone ")")))
+
+; Theme
+;(add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
+
+
