@@ -145,8 +145,12 @@
 (add-hook 'magit-mode-hook 'magit-load-config-extensions)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+; Gist
+(add-to-list 'load-path (concat user-emacs-directory "gist.el/"))
+(require 'gist)
+
 ; Backups
-(push '("." . "~/.emacs.d/backups") backup-directory-alist)
+(push '("." . (concat user-emacs-directory "backups")) backup-directory-alist)
 
 ; Better buffer naming
 (require 'uniquify)
