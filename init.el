@@ -1,22 +1,21 @@
 ;;; Init.el
 ;;; Author: Aristid Breitkreuz <aristidb@googlemail.com>
 
+; Personal info
+(setq user-full-name "Aristid Breitkreuz")
+(setq user-mail-address "aristidb@googlemail.com")
+
 ; Global load paths
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path (concat user-emacs-directory "config/"))
 
 ; Load utility functions
 (load (concat user-emacs-directory "elisp-utils/elisp-utils.el"))
+
 ; Keys
 (when (eq system-type 'darwin)
    (setq ns-command-modifier 'meta)
    (setq ns-alternate-modifier 'none))
-
-; Add some paths for executables
-(defun add-exec-paths (paths)
-  (let ((expanded (mapcar 'expand-file-name paths)))
-    (setenv "PATH" (concat (mapconcat 'identity expanded ":") ":" (getenv "PATH")))
-    (setq exec-path (append expanded exec-path))))
 
 ; Add some paths for executables
 (add-exec-paths '("~/.cabal/bin"))
@@ -174,3 +173,5 @@
                                             (if time-zone " (")
                                             time-zone
                                             (if time-zone ")")))
+; Theme
+;(add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
