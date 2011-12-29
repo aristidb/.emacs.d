@@ -3,6 +3,7 @@
 
 ; Global load paths
 (add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path (concat user-emacs-directory "config/"))
 
 ; Load utility functions
 (load (concat user-emacs-directory "elisp-utils/elisp-utils.el"))
@@ -143,3 +144,29 @@
 ; Allow git config to demand magit extensions.
 (add-hook 'magit-mode-hook 'magit-load-config-extensions)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+; Backups
+(push '("." . "~/.emacs.d/backups") backup-directory-alist)
+
+; Better buffer naming
+(require 'uniquify)
+(setq 
+ uniquify-buffer-name-style 'reverse
+ uniquify-separator ":")
+
+; Enable "dangerous" functions.
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+
+; Make writing scripts more comfortable.
+(add-hook 'after-save-hook
+  'executable-make-buffer-file-executable-if-script-p)
+
+; Calendar format.
+(setq display-time-24hr-format t)
+(setq calendar-week-start-day 1) ;; Week starts with Monday
+(setq calendar-time-display-form '(24-hours ":" minutes
+                                            (if time-zone " (")
+                                            time-zone
+                                            (if time-zone ")")))
