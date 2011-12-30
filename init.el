@@ -5,6 +5,9 @@
 (setq user-full-name "Aristid Breitkreuz")
 (setq user-mail-address "aristidb@googlemail.com")
 
+; UTF-8
+(prefer-coding-system 'utf-8)
+
 ; Global load paths
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path (concat user-emacs-directory "config/"))
@@ -175,3 +178,9 @@
                                             (if time-zone ")")))
 ; Theme
 ;(add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
+
+; Agda Mode
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "agda-mode locate")))
+
+
