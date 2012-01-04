@@ -25,19 +25,25 @@
 (when (eq system-type 'darwin)
   (add-exec-paths '("/usr/local/bin")))
 
-; Section for Custom. Emacs takes care of this. ;-)
+; Theme (not for Emacs 23)
+(when (> emacs-major-version 23)
+  (add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
+  (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
+  (load-theme 'solarized-dark t))
 
+; Section for Custom. Emacs takes care of this. ;-)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("485737acc3bedc0318a567f1c0f5e7ed2dfde3fb" default)))
  '(tool-bar-mode nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 ; Start the server for emacsclient.
@@ -180,9 +186,6 @@
                                             (if time-zone " (")
                                             time-zone
                                             (if time-zone ")")))
-; Theme
-;(add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
-
 ; Agda Mode
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
