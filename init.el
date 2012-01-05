@@ -147,7 +147,7 @@
 (setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
 
 ; ESS
-(add-to-list 'load-path (concat user-emacs-directory "ess-5.14"))
+(add-to-list 'load-path (concat user-emacs-directory "ess-5.14/lisp"))
 (require 'ess-site)
 
 ; Haskell
