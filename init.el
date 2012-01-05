@@ -143,6 +143,9 @@
 (setq org-default-notes-file (concat org-directory "notes.org"))
 (setq org-agenda-files (concat org-directory "agenda-files"))
 
+(setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
+(setq org-mobile-inbox-for-pull (concat org-directory "notes.org"))
+
 ; ESS
 (load (concat user-emacs-directory "ess-5.14/lisp/ess-site.el"))
 
