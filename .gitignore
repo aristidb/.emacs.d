@@ -1,3 +1,5 @@
 *~
 url/cookies
 *.#*
+*.elc
+*.tmp.el
