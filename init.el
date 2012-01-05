@@ -144,6 +144,7 @@
 (setq org-agenda-files (concat org-directory "agenda-files"))
 
 (setq org-refile-targets '((nil . (:maxlevel . 3)) (org-agenda-files . (:maxlevel . 1))))
+(setq org-refile-use-outline-path 'file)
 
 (setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
 (setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
