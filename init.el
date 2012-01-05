@@ -136,6 +136,9 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(setq org-completion-use-ido t)
+(setq org-outline-path-complete-in-steps nil)
+
 (setq org-directory (expand-file-name "~/org/"))
 (setq org-default-notes-file (concat org-directory "notes.org"))
 (setq org-agenda-files (concat org-directory "agenda-files"))
