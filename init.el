@@ -143,7 +143,7 @@
 (setq org-default-notes-file (concat org-directory "notes.org"))
 (setq org-agenda-files (concat org-directory "agenda-files"))
 
-(setq org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
+(setq org-refile-targets '((nil . (:maxlevel . 3)) (org-agenda-files . (:maxlevel . 1))))
 
 (setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
 (setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
