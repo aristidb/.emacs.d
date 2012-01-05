@@ -136,6 +136,9 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(setq org-directory (expand-file-name "~/org/"))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+
 ; ESS
 (load (concat user-emacs-directory "ess-5.14/lisp/ess-site.el"))
 
