@@ -4,3 +4,5 @@ url/cookies
 *.elc
 *.tmp.el
 *.info
+.org-id-locations
+bookmarks
