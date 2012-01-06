@@ -149,6 +149,14 @@
 (setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
 (setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (emacs-lisp . t)
+   (perl . t)
+   (ditaa . t)
+   ))
+
 ; ESS
 (add-to-list 'load-path (concat user-emacs-directory "ess-5.14/lisp"))
 (require 'ess-site)
