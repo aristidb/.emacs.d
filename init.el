@@ -128,6 +128,15 @@
 
 (add-hook 'c-mode-common-hook 'aristid-c-mode-common)
 
+; Gnuplot Mode
+;; these lines enable the use of gnuplot mode
+(autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
+(autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
+
+;; this line automatically causes all files with the .gp extension to
+;; be loaded into gnuplot mode
+(setq auto-mode-alist (append '(("\\.gp$" . gnuplot-mode)) auto-mode-alist))
+
 ; Org Mode
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -155,6 +164,7 @@
    (emacs-lisp . t)
    (perl . t)
    (ditaa . t)
+   (gnuplot . t)
    ))
 
 ; ESS
@@ -211,5 +221,3 @@
 ; Agda Mode
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
-
-
