@@ -167,6 +167,8 @@
    (gnuplot . t)
    ))
 
+(setq org-ditaa-jar-path (concat user-emacs-directory "ditaa0_9.jar"))
+
 ; ESS
 (add-to-list 'load-path (concat user-emacs-directory "ess-5.14/lisp"))
 (require 'ess-site)
@@ -221,3 +223,4 @@
 ; Agda Mode
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
+(setq agda2-include-dirs (cons "." (mapcar 'expand-file-name '("~/agda/lib-0.6/src"))))
