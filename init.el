@@ -29,7 +29,8 @@
 (when (> emacs-major-version 23)
   (add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
-  (load-theme 'solarized-dark t))
+  ;(load-theme 'solarized-dark t)
+  )
 
 ; Section for Custom. Emacs takes care of this. ;-)
 (custom-set-variables
