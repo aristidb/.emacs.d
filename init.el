@@ -37,6 +37,8 @@
   (load-theme 'tango-dark t)
   )
 
+(find-and-set-font '("DejaVu Sans Mono-9"))
+
 ; Section for Custom. Emacs takes care of this. ;-)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -49,9 +51,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
-
-(find-and-set-font '("DejaVu Sans Mono-9"))
+ '(agda2-highlight-coinductive-constructor-face ((t (:foreground "#fcaf3e"))))
+ '(agda2-highlight-datatype-face ((t (:foreground "#729fcf"))))
+ '(agda2-highlight-error-face ((t (:foreground "#cc0000" :underline t))))
+ '(agda2-highlight-function-face ((t (:foreground "#729fcf"))))
+ '(agda2-highlight-inductive-constructor-face ((t (:foreground "#8ae234"))))
+ '(agda2-highlight-keyword-face ((t (:foreground "#edd400"))))
+ '(agda2-highlight-module-face ((t (:foreground "#ad7fa8"))))
+ '(agda2-highlight-number-face ((t (:foreground "#ad7fa8"))))
+ '(agda2-highlight-postulate-face ((t (:foreground "#729fcf"))))
+ '(agda2-highlight-primitive-face ((t (:foreground "#729fcf"))))
+ '(agda2-highlight-primitive-type-face ((t (:foreground "#729fcf"))))
+ '(agda2-highlight-record-face ((t (:foreground "#729fcf"))))
+ '(agda2-highlight-string-face ((t (:foreground "#ef2929")))))
 
 ; Start the server for emacsclient.
 (require 'server)
