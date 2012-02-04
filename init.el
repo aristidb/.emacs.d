@@ -51,7 +51,7 @@
  ;; If there is more than one, they won't work right.
 )
 
-(find-and-set-font '("DejaVu Sans Mono-9"))
+(find-and-set-font '("Menlo-11" "DejaVu Sans Mono-9"))
 
 ; Start the server for emacsclient.
 (require 'server)
