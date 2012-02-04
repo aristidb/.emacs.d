@@ -37,7 +37,7 @@
   (load-theme 'tango-dark t)
   )
 
-(find-and-set-font '("Inconsolata-12" "Monaco-10" "DejaVu Sans Mono-9"))
+(find-and-set-font '("Monaco-10" "DejaVu Sans Mono-9"))
 
 ; Section for Custom. Emacs takes care of this. ;-)
 (custom-set-variables
