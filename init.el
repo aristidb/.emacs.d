@@ -1,6 +1,8 @@
 ;;; Init.el
 ;;; Author: Aristid Breitkreuz <aristidb@googlemail.com>
 
+(require 'cl)
+
 ; Personal info
 (setq user-full-name "Aristid Breitkreuz")
 (setq user-mail-address "aristidb@googlemail.com")
@@ -30,6 +32,9 @@
   (add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
   (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
   ;(load-theme 'solarized-dark t)
+
+  ;(enable-theme 'tango-dark)
+  (load-theme 'tango-dark t)
   )
 
 ; Section for Custom. Emacs takes care of this. ;-)
@@ -38,14 +43,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("485737acc3bedc0318a567f1c0f5e7ed2dfde3fb" default)))
- '(tool-bar-mode nil))
+ '(custom-safe-themes (quote ("485737acc3bedc0318a567f1c0f5e7ed2dfde3fb" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+)
+
+(find-and-set-font '("DejaVu Sans Mono-9"))
 
 ; Start the server for emacsclient.
 (require 'server)
@@ -70,6 +76,9 @@
 (column-number-mode 1)
 ; Size indication
 (size-indication-mode 1)
+
+; Disable toolbar
+(tool-bar-mode 0)
 
 ; ido
 (require 'ido)
