@@ -7,6 +7,9 @@
 (setq user-full-name "Aristid Breitkreuz")
 (setq user-mail-address "aristidb@googlemail.com")
 
+; Other constants
+(defconst console-p (eq (symbol-value 'window-system) nil))
+
 ; UTF-8
 (prefer-coding-system 'utf-8)
 
