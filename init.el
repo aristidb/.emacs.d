@@ -249,3 +249,4 @@
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
 (setq agda2-include-dirs (cons "." (mapcar 'expand-file-name '("~/agda/lib-0.6/src"))))
+(add-to-list 'ido-ignore-files "\\.agdai")
