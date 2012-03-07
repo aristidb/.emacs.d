@@ -26,7 +26,7 @@
    (setq ns-alternate-modifier 'none))
 
 ; Add some paths for executables
-(add-exec-paths '("~/.cabal/bin"))
+(add-exec-paths '("~/.nix-profile/bin" "~/.cabal/bin"))
 (when (eq system-type 'darwin)
   (add-exec-paths '("/usr/local/bin")))
 
