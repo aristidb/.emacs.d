@@ -180,6 +180,8 @@
 (setq org-refile-targets '((nil . (:maxlevel . 3)) (org-agenda-files . (:maxlevel . 1))))
 (setq org-refile-use-outline-path 'file)
 
+(require 'org-habit)
+
 (setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
 (setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
 
@@ -191,6 +193,8 @@
    (ditaa . t)
    (gnuplot . t)
    ))
+
+(setq org-src-fontify-natively t) ; fontify source code
 
 (setq org-ditaa-jar-path (concat user-emacs-directory "ditaa0_9.jar"))
 
@@ -250,3 +254,8 @@
                 (shell-command-to-string "agda-mode locate")))
 (setq agda2-include-dirs (cons "." (mapcar 'expand-file-name '("~/agda/lib/src" "~/agda/lib-0.6/src"))))
 (add-to-list 'ido-ignore-files "\\.agdai")
+
+; Twelf
+(when (eq system-type 'darwin)
+  (setq twelf-root "/Applications/Twelf/")
+  (load (concat twelf-root "emacs/twelf-init.el")))
