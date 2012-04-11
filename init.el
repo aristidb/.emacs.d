@@ -177,6 +177,12 @@
 (setq org-default-notes-file (concat org-directory "notes.org"))
 (setq org-agenda-files (concat org-directory "agenda-files"))
 
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline (concat org-directory "notes.org") "Tasks")
+         "* TODO %?\n  %i\m  %a")
+        ("j" "Journal" entry (file+datetree (concat org-directory "journal.org"))
+         "* %?\n  Entered on %U\n  %i\n  %a")))
+
 (setq org-refile-targets '((nil . (:maxlevel . 3)) (org-agenda-files . (:maxlevel . 1))))
 (setq org-refile-use-outline-path 'file)
 
