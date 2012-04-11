@@ -181,6 +181,7 @@
 (setq org-refile-use-outline-path 'file)
 
 (require 'org-habit)
+(setq org-habit-show-habits-only-for-today nil)
 
 (setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
 (setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
