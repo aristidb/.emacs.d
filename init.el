@@ -48,6 +48,7 @@
         gist
         smex
         js2-mode
+        unbound
         ))
 
 (defun preload-packages-installed-p ()
@@ -302,3 +303,6 @@
 ; JS2 Mode
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+; Unbound (find unbound shortcuts)
+(require 'unbound)
