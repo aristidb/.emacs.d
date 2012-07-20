@@ -6,6 +6,9 @@ url/cookies
 *.info
 .org-id-locations
 bookmarks
+tramp
+elpa/*
+eshell/*
 ess*/doc/*.aux
 ess*/doc/*.cp
 ess*/doc/*.cps
