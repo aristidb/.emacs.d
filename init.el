@@ -37,7 +37,12 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (defvar preload-packages '())
-(setq preload-packages '(auctex mark-multiple mark-more-like-this))
+(setq preload-packages
+      '(auctex
+        mark-multiple
+        mark-more-like-this
+        ess))
+
 (defun preload-packages-installed-p ()
   (loop for p in preload-packages
         when (not (package-installed-p p)) do (return nil)
@@ -221,7 +226,6 @@
 (setq org-ditaa-jar-path (concat user-emacs-directory "ditaa0_9.jar"))
 
 ; ESS
-(add-to-list 'load-path (concat user-emacs-directory "ess-5.14/lisp"))
 (require 'ess-site)
 
 ; Haskell
