@@ -44,6 +44,8 @@
         magit
         mark-more-like-this
         mark-multiple
+        gh
+        gist
         ))
 
 (defun preload-packages-installed-p ()
@@ -249,9 +251,7 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ; Gist
-; TODO: use package.el/marmalade to install it properly
-(add-to-list 'load-path (concat user-emacs-directory "gist.el/"))
-;(require 'gist)
+(require 'gist)
 
 ; Backups
 (push (cons "." (concat user-emacs-directory "backups")) backup-directory-alist)
