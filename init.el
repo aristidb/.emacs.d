@@ -31,14 +31,9 @@
   (add-exec-paths '("/usr/local/bin")))
 
 ; Theme (not for Emacs 23)
-(when (> emacs-major-version 23)
-  (add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
-  (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
-  ;(load-theme 'solarized-dark t)
-
-  ;(enable-theme 'tango-dark)
-  (load-theme 'tango-dark t)
-  )
+(add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
+(load-theme 'tango-dark t)
 
 (find-and-set-font '("Monaco-10" "DejaVu Sans Mono-9"))
 
