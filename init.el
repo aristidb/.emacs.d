@@ -46,6 +46,7 @@
         mark-multiple
         gh
         gist
+        smex
         ))
 
 (defun preload-packages-installed-p ()
@@ -125,7 +126,6 @@
 (ido-mode t)
 
 ; SMEX (= ido for M-x)
-(add-to-list 'load-path (concat user-emacs-directory "smex"))
 (require 'smex)
 (add-hook 'after-init-hook 'smex-initialize)
 
