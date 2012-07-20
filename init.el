@@ -47,6 +47,7 @@
         gh
         gist
         smex
+        js2-mode
         ))
 
 (defun preload-packages-installed-p ()
@@ -214,9 +215,6 @@
 (require 'org-habit)
 (setq org-habit-show-habits-only-for-today nil)
 
-(setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
-(setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
-
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((R . t)
@@ -229,6 +227,11 @@
 (setq org-src-fontify-natively t) ; fontify source code
 
 (setq org-ditaa-jar-path (concat user-emacs-directory "ditaa0_9.jar"))
+
+;; mobile org
+(setq org-mobile-directory (expand-file-name "~/Dropbox/MobileOrg"))
+(setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
+(run-with-timer 0 (* 30 60) 'org-mobile-pull)
 
 ; ESS
 (require 'ess-site)
@@ -295,3 +298,7 @@
 (global-set-key (kbd "C->") 'mark-next-like-this)
 (global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
 (global-set-key (kbd "C-*") 'mark-all-like-this)
+
+; JS2 Mode
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
