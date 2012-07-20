@@ -5,7 +5,7 @@
 
 ; Personal info
 (setq user-full-name "Aristid Breitkreuz")
-(setq user-mail-address "aristidb@googlemail.com")
+(setq user-mail-address "aristidb@gmail.com")
 
 ; Other constants
 (defconst console-p (eq (symbol-value 'window-system) nil))
