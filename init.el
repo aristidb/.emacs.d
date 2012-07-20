@@ -246,7 +246,7 @@
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 
 (require 'haskell-align-imports)
-;(define-key 'haskell-mode-map (kbd "C-c .") 'haskell-align-imports)
+(define-key haskell-mode-map (kbd "C-c .") 'haskell-align-imports)
 
 ; Magit
 (require 'magit)
