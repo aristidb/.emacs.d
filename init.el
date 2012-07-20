@@ -38,10 +38,13 @@
 
 (defvar preload-packages '())
 (setq preload-packages
-      '(auctex
-        mark-multiple
+      '(
+        auctex
+        ess
+        magit
         mark-more-like-this
-        ess))
+        mark-multiple
+        ))
 
 (defun preload-packages-installed-p ()
   (loop for p in preload-packages
@@ -240,7 +243,6 @@
 ;(define-key 'haskell-mode-map (kbd "C-c .") 'haskell-align-imports)
 
 ; Magit
-(add-to-list 'load-path (concat user-emacs-directory "magit"))
 (require 'magit)
 ; Allow git config to demand magit extensions.
 (add-hook 'magit-mode-hook 'magit-load-config-extensions)

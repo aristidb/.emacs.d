@@ -4,9 +4,6 @@
 [submodule "elisp-utils"]
 	path = elisp-utils
 	url = git@github.com:aristidb/elisp-utils.git
-[submodule "magit"]
-	path = magit
-	url = https://github.com/magit/magit.git
 [submodule "gist.el"]
 	path = gist.el
 	url = git://github.com/defunkt/gist.el.git
