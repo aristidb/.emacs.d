@@ -30,6 +30,26 @@
 (when (eq system-type 'darwin)
   (add-exec-paths '("/usr/local/bin")))
 
+; ELPA
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+(defvar preload-packages '())
+(setq preload-packages '(auctex mark-multiple mark-more-like-this))
+(defun preload-packages-installed-p ()
+  (loop for p in preload-packages
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
+
+(unless (preload-packages-installed-p)
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (message "%s" " done.")
+  (loop for p in preload-packages
+        when (not (package-installed-p p)) do (package-install p)))
+
 ; Theme (not for Emacs 23)
 (add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
@@ -262,3 +282,10 @@
 (when (eq system-type 'darwin)
   (setq twelf-root "/Applications/Twelf/")
   (load (concat twelf-root "emacs/twelf-init.el")))
+
+; Mark Multiple / Mark More Like This
+(require 'mark-more-like-this)
+(global-set-key (kbd "C-<") 'mark-previous-like-this)
+(global-set-key (kbd "C->") 'mark-next-like-this)
+(global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
+(global-set-key (kbd "C-*") 'mark-all-like-this)
