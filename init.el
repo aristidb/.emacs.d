@@ -308,3 +308,9 @@
 
 ; Unbound (find unbound shortcuts)
 (require 'unbound)
+
+; EPA/EPG (EasyPG Assistant for GnuGPG)
+(require 'epa)
+(require 'epa-file)
+(epa-file-enable)
+(epa-global-mail-mode 1) ; not using emacs mail now, but I AM PREPARED
