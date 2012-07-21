@@ -241,6 +241,7 @@
 
 ; Haskell
 (load (concat user-emacs-directory "haskell-mode-2.8.0/haskell-site-file"))
+(require 'haskell-mode)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
