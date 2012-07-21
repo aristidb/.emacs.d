@@ -319,3 +319,7 @@
 (require 'epa-file)
 (epa-file-enable)
 (epa-global-mail-mode 1) ; not using emacs mail now, but I AM PREPARED
+
+; Ace Jump Mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
