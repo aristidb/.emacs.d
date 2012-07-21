@@ -51,6 +51,7 @@
         smex
         js2-mode
         unbound
+        markdown-mode
         ))
 
 (defun preload-packages-installed-p ()
