@@ -35,8 +35,8 @@
 ; ELPA
 (require 'package)
 (package-initialize)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (defvar preload-packages '())
 (setq preload-packages
@@ -44,7 +44,7 @@
         auctex
         ess
         magit
-        mark-more-like-this
+        ;mark-more-like-this ;in MELPA this is part of mark-multiple
         mark-multiple
         gh
         gist
@@ -52,6 +52,8 @@
         js2-mode
         unbound
         markdown-mode
+        ace-jump-mode
+        haskell-mode
         ))
 
 (defun preload-packages-installed-p ()
@@ -241,7 +243,8 @@
 (require 'ess-site)
 
 ; Haskell
-(load (concat user-emacs-directory "haskell-mode-2.8.0/haskell-site-file"))
+;(load (concat user-emacs-directory "haskell-mode-2.8.0/haskell-site-file"))
+(load "haskell-site-file")
 (require 'haskell-mode)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
