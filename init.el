@@ -147,7 +147,7 @@
 ; TRAMP (some of it from http://tsdh.wordpress.com/2008/08/20/re-open-read-only-files-as-root-automagically/)
 (require 'tramp)
 
-(add-to-list 'tramp-remote-path "/var/run/current-system/sw/bin") ; for NixOS remotes
+(add-to-list 'tramp-remote-path "/run/current-system/sw/bin") ; for NixOS remotes
 
 (defun th-rename-tramp-buffer ()
   (when (file-remote-p (buffer-file-name))
