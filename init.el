@@ -149,6 +149,12 @@
 
 (add-to-list 'tramp-remote-path "/run/current-system/sw/bin") ; for NixOS remotes
 
+;; Sudo on remote systems
+(add-to-list 'tramp-default-proxies-alist
+                  '(nil "\\`root\\'" "/ssh:%h:"))
+(add-to-list 'tramp-default-proxies-alist
+                  '("localhost" nil nil))
+
 (defun th-rename-tramp-buffer ()
   (when (file-remote-p (buffer-file-name))
     (rename-buffer
