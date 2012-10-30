@@ -28,7 +28,7 @@
 (global-set-key (kbd "C-c s") 'sort-lines)
 
 ; Add some paths for executables
-(add-exec-paths '("~/.nix-profile/bin" "~/.cabal/bin"))
+(add-exec-paths '("~/.nix-profile/bin" "~/.cabal/bin" "/usr/texbin"))
 (when (eq system-type 'darwin)
   (add-exec-paths '("/usr/local/bin")))
 
