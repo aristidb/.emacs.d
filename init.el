@@ -331,3 +331,8 @@
 ; Ace Jump Mode
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+; ispell / flyspell
+(require 'flyspell)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(global-set-key (kbd "C-c f") 'flyspell-correct-word-before-point)
