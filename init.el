@@ -334,5 +334,7 @@
 
 ; ispell / flyspell
 (require 'flyspell)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (global-set-key (kbd "C-c f") 'flyspell-correct-word-before-point)
+(global-set-key (kbd "M-p") 'flyspell-check-previous-highlighted-word)
+(global-set-key (kbd "M-n") 'flyspell-goto-next-error)
