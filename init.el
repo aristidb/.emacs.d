@@ -240,6 +240,20 @@
 
 (setq org-src-fontify-natively t) ; fontify source code
 
+(setq org-export-latex-listings 'minted)
+(setq org-export-latex-custom-lang-environments
+      '(
+        (emacs-lisp "common-lispcode")
+        ))
+(setq org-export-latex-minted-options
+      '(("frame" "lines")
+        ("fontsize" "\\scriptsize")
+        ("linenos" "")))
+(setq org-latex-to-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
 (setq org-ditaa-jar-path (concat user-emacs-directory "ditaa0_9.jar"))
 
 ;; mobile org
