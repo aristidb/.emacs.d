@@ -21,9 +21,9 @@
 (load (concat user-emacs-directory "elisp-utils/elisp-utils.el"))
 
 ; Keys
-(when (eq system-type 'darwin)
-   (setq ns-command-modifier 'meta)
-   (setq ns-alternate-modifier 'none))
+;(when (eq system-type 'darwin)
+;   (setq ns-command-modifier 'meta)
+;   (setq ns-alternate-modifier 'none))
 
 (global-set-key (kbd "C-c s") 'sort-lines)
 
