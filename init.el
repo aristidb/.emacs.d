@@ -16,6 +16,8 @@
 ; Global load paths
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path (concat user-emacs-directory "config/"))
+(add-to-list 'load-path "~/.nix-profile/share/emacs/site-lisp")
+(add-to-list 'load-path "/run/current-system/sw/share/emacs/site-lisp")
 
 ; Load utility functions
 (load (concat user-emacs-directory "elisp-utils/elisp-utils.el"))
@@ -355,3 +357,6 @@
 (global-set-key (kbd "C-c f") 'flyspell-correct-word-before-point)
 (global-set-key (kbd "M-p") 'flyspell-check-previous-highlighted-word)
 (global-set-key (kbd "M-n") 'flyspell-goto-next-error)
+
+; Nix mode
+(require 'nix-mode)
