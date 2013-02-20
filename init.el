@@ -57,6 +57,7 @@
         ace-jump-mode
         haskell-mode
         cl-lib
+        projectile
         ))
 
 (defun preload-packages-installed-p ()
@@ -363,3 +364,6 @@
 
 ; Nix mode
 (require 'nix-mode)
+
+; Projectile
+(projectile-global-mode)
