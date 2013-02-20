@@ -57,6 +57,7 @@
         ace-jump-mode
         haskell-mode
         cl-lib
+        s
         projectile
         ))
 
@@ -367,3 +368,13 @@
 
 ; Projectile
 (projectile-global-mode)
+
+; Weechat
+(add-to-list 'load-path (concat user-emacs-directory "weechat.el"))
+(require 'weechat)
+
+(defun weechat ()
+  "Start weechat"
+  (interactive)
+  (require 'loadauth)
+  (apply #'weechat-connect weechat-connection))
