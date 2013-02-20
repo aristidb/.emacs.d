@@ -56,6 +56,7 @@
         markdown-mode
         ace-jump-mode
         haskell-mode
+        cl-lib
         ))
 
 (defun preload-packages-installed-p ()
