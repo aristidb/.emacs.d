@@ -378,3 +378,6 @@
   (interactive)
   (require 'loadauth)
   (apply #'weechat-connect weechat-connection))
+
+(global-set-key (kbd "C-c i") 'weechat-switch-buffer)
+(set-face-background 'weechat-highlight-face "dark blue")
