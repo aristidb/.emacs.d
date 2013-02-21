@@ -61,6 +61,7 @@
         projectile
         sauron
         notify
+        alert
         ))
 
 (defun preload-packages-installed-p ()
@@ -88,25 +89,26 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("485737acc3bedc0318a567f1c0f5e7ed2dfde3fb" default))))
+ '(custom-safe-themes (quote ("485737acc3bedc0318a567f1c0f5e7ed2dfde3fb" default)))
+ '(safe-local-variable-values (quote ((require-final-newline . t) (mangle-whitespace . t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(agda2-highlight-coinductive-constructor-face ((t (:foreground "#fcaf3e"))))
- '(agda2-highlight-datatype-face ((t (:foreground "#729fcf"))))
- '(agda2-highlight-error-face ((t (:foreground "#cc0000" :underline t))))
- '(agda2-highlight-function-face ((t (:foreground "#729fcf"))))
- '(agda2-highlight-inductive-constructor-face ((t (:foreground "#8ae234"))))
- '(agda2-highlight-keyword-face ((t (:foreground "#edd400"))))
- '(agda2-highlight-module-face ((t (:foreground "#ad7fa8"))))
- '(agda2-highlight-number-face ((t (:foreground "#ad7fa8"))))
- '(agda2-highlight-postulate-face ((t (:foreground "#729fcf"))))
- '(agda2-highlight-primitive-face ((t (:foreground "#729fcf"))))
- '(agda2-highlight-primitive-type-face ((t (:foreground "#729fcf"))))
- '(agda2-highlight-record-face ((t (:foreground "#729fcf"))))
- '(agda2-highlight-string-face ((t (:foreground "#ef2929")))))
+ '(agda2-highlight-coinductive-constructor-face ((t (:foreground "#fcaf3e"))) t)
+ '(agda2-highlight-datatype-face ((t (:foreground "#729fcf"))) t)
+ '(agda2-highlight-error-face ((t (:foreground "#cc0000" :underline t))) t)
+ '(agda2-highlight-function-face ((t (:foreground "#729fcf"))) t)
+ '(agda2-highlight-inductive-constructor-face ((t (:foreground "#8ae234"))) t)
+ '(agda2-highlight-keyword-face ((t (:foreground "#edd400"))) t)
+ '(agda2-highlight-module-face ((t (:foreground "#ad7fa8"))) t)
+ '(agda2-highlight-number-face ((t (:foreground "#ad7fa8"))) t)
+ '(agda2-highlight-postulate-face ((t (:foreground "#729fcf"))) t)
+ '(agda2-highlight-primitive-face ((t (:foreground "#729fcf"))) t)
+ '(agda2-highlight-primitive-type-face ((t (:foreground "#729fcf"))) t)
+ '(agda2-highlight-record-face ((t (:foreground "#729fcf"))) t)
+ '(agda2-highlight-string-face ((t (:foreground "#ef2929"))) t))
 
 ; Start the server for emacsclient.
 (require 'server)
@@ -388,6 +390,9 @@
 (require 'auth-source)
 (add-to-list 'auth-sources (concat user-emacs-directory "authinfo.gpg"))
 
+; Alert.el
+(require 'alert)
+
 ; Sauron
 (require 'sauron)
 
@@ -400,7 +405,10 @@
 (add-hook 'sauron-event-added-functions
           (lambda
             (origin prio msg &optional props)
-            (sauron-fx-notify (format "Sauron: %s" origin) msg 5000)))
+            (let
+                ((sender (plist-get props :sender))
+              (sauron-fx-notify (format "%s: %s" origin sender) msg 5000)))))
+(add-hook 'sauron-event-added-functions 'sauron-alert-el-adapter)
 
 (sauron-start-hidden)
 
