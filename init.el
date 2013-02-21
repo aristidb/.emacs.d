@@ -60,6 +60,7 @@
         s
         projectile
         sauron
+        notify
         ))
 
 (defun preload-packages-installed-p ()
@@ -377,6 +378,9 @@
 (setq weechat-host-default "localhost")
 (setq weechat-port-default 9000)
 
+(setq weechat-notification-mode t)
+(setq weechat-notification-handler 'weechat-sauron-handler)
+
 (global-set-key (kbd "C-c C-b") 'weechat-switch-buffer)
 ;(set-face-background 'weechat-highlight-face "dark blue")
 
@@ -392,6 +396,11 @@
 (add-hook 'sauron-mode-hook
           (lambda ()
             (local-set-key (kbd "q") 'sauron-toggle-hide-show)))
+
+(add-hook 'sauron-event-added-functions
+          (lambda
+            (origin prio msg &optional props)
+            (sauron-fx-notify (format "Sauron: %s" origin) msg 5000)))
 
 (sauron-start-hidden)
 
