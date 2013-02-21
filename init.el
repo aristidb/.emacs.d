@@ -373,11 +373,13 @@
 (add-to-list 'load-path (concat user-emacs-directory "weechat.el"))
 (require 'weechat)
 
-(defun weechat ()
-  "Start weechat"
-  (interactive)
-  (require 'loadauth)
-  (apply #'weechat-connect weechat-connection))
+(setq weechat-host-default "localhost")
+(setq weechat-port-default 9000)
 
-(global-set-key (kbd "C-c i") 'weechat-switch-buffer)
-(set-face-background 'weechat-highlight-face "dark blue")
+(global-set-key (kbd "C-c C-b") 'weechat-switch-buffer)
+;(set-face-background 'weechat-highlight-face "dark blue")
+
+; Auth source
+(require 'auth-source)
+(add-to-list 'auth-sources (concat user-emacs-directory "authinfo.gpg"))
+
