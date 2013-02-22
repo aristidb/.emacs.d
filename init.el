@@ -34,6 +34,29 @@
 (when (eq system-type 'darwin)
   (add-exec-paths '("/usr/local/bin")))
 
+
+; EL-Get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(setq el-get-user-package-directory (concat user-emacs-directory "pkginit"))
+
+(load (concat user-emacs-directory "el-get-sources.el"))
+
+(setq my:el-get-packages
+      '(el-get
+        codepad
+        reftex
+        auctex))
+
+(el-get 'sync my:el-get-packages)
+
 ; ELPA
 (require 'package)
 (package-initialize)
@@ -43,7 +66,7 @@
 (defvar preload-packages '())
 (setq preload-packages
       '(
-        auctex
+        ;auctex
         ess
         magit
         ;mark-more-like-this ;in MELPA this is part of mark-multiple
@@ -436,15 +459,3 @@
               (switch-to-buffer (or (find-buffer-visiting org-mobile-inbox-for-pull)
                                     (find-file-noselect org-mobile-inbox-for-pull))))))))
      (add-hook 'org-mobile-post-pull-hook 'my-sauron-org-mobile-pull)))
-
-; EL-Get
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(el-get 'sync)
