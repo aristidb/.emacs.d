@@ -42,8 +42,9 @@
   (with-current-buffer
       (url-retrieve-synchronously
        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
+    (let (el-get-install-skip-emacswiki-recipes)
+      (goto-char (point-max))
+      (eval-print-last-sexp))))
 
 (setq el-get-user-package-directory (concat user-emacs-directory "pkginit"))
 
@@ -56,7 +57,8 @@
         auctex
         ess
         magit
-        smex))
+        smex
+        gist))
 
 (el-get 'sync my:el-get-packages)
 
@@ -74,8 +76,8 @@
         ;magit
         ;mark-more-like-this ;in MELPA this is part of mark-multiple
         mark-multiple
-        gh
-        gist
+        ;gh
+        ;gist
         ;smex
         js2-mode
         unbound
@@ -300,7 +302,7 @@
 (setq haskell-program-name "/home/aristid/dotfiles/scripts/haskell-repl.pl")
 
 ; Gist
-(require 'gist)
+;(require 'gist)
 
 ; Backups
 (push (cons "." (concat user-emacs-directory "backups")) backup-directory-alist)

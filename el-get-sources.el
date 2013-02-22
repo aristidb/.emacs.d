@@ -12,4 +12,15 @@
                            (concat "make " target " EMACS=" el-get-emacs))
                          '("all"))
                :load-path ("lisp")
-               :features ess-site)))
+               :features ess-site)
+	(:name gh
+	       :description "Github API for Emacs"
+	       :type github
+	       :pkgname "sigma/gh.el"
+	       :features gh)
+	(:name gist
+	       :description "Gist for Emacs"
+	       :depends gh
+	       :type github
+	       :pkgname "defunkt/gist.el"
+	       :features gist)))
