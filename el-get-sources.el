@@ -71,7 +71,13 @@
                :type github
                :username "the-kenny"
                :pkgname "weechat.el"
-               :features weechat)))
+               :features weechat)
+        (:name elisp-utils
+               :description "A few small utility functions"
+               :type github
+               :username "aristidb"
+               :pkgname "elisp-utils"
+               :features elisp-utils)))
 
 (if (version-list-< (version-to-list emacs-version) '(24 3 0))
     (add-to-list 'el-get-sources '(:name cl-lib :type elpa))

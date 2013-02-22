@@ -19,21 +19,12 @@
 (add-to-list 'load-path "~/.nix-profile/share/emacs/site-lisp")
 (add-to-list 'load-path "/run/current-system/sw/share/emacs/site-lisp")
 
-; Load utility functions
-(load (concat user-emacs-directory "elisp-utils/elisp-utils.el"))
-
 ; Keys
 ;(when (eq system-type 'darwin)
 ;   (setq ns-command-modifier 'meta)
 ;   (setq ns-alternate-modifier 'none))
 
 (global-set-key (kbd "C-c s") 'sort-lines)
-
-; Add some paths for executables
-(add-exec-paths '("~/.nix-profile/bin" "~/.cabal/bin" "/usr/texbin"))
-(when (eq system-type 'darwin)
-  (add-exec-paths '("/usr/local/bin")))
-
 
 ; EL-Get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -77,7 +68,13 @@
 (when (el-get-executable-find "ghc")
   (add-to-list 'my:el-get-packages 'haskell-mode))
 
-(el-get 'sync my:el-get-packages)
+(el-get 'sync '(elisp-utils))
+(el-get nil my:el-get-packages)
+
+; Add some paths for executables
+(add-exec-paths '("~/.nix-profile/bin" "~/.cabal/bin" "/usr/texbin"))
+(when (eq system-type 'darwin)
+  (add-exec-paths '("/usr/local/bin")))
 
 ; Theme (not for Emacs 23)
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))

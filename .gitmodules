@@ -1,3 +1,0 @@
-[submodule "elisp-utils"]
-	path = elisp-utils
-	url = git@github.com:aristidb/elisp-utils.git
