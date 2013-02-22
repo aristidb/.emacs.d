@@ -42,4 +42,17 @@
 	       :depends gh
 	       :type github
 	       :pkgname "defunkt/gist.el"
-	       :features gist)))
+	       :features gist)
+	(:name unbound
+	       :description "find convenient unbound keystrokes"
+	       :type elpa
+	       :repo ("marmalade" . "http://marmalade-repo.org/packages/"))
+        (:name s
+               :description "The long lost Emacs string manipulation library."
+               :type github
+               :username "magnars"
+               :pkgname "s.el")))
+
+(if (version-list-< (version-to-list emacs-version) '(24 3 0))
+    (add-to-list 'el-get-sources '(:name cl-lib :type elpa))
+  (add-to-list 'el-get-sources '(:name cl-lib :type builtin)))

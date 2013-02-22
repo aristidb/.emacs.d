@@ -60,7 +60,12 @@
         org-mode
         js2-mode
         mark-multiple
-        unbound))
+        unbound
+        markdown-mode
+        ace-jump-mode
+        ; temporary
+        s
+        cl-lib))
 
 (when (el-get-executable-find "latex")
   (add-to-list 'my:el-get-packages 'auctex)
@@ -93,11 +98,11 @@
         ;smex
         ;js2-mode
         ;unbound
-        markdown-mode
-        ace-jump-mode
-        haskell-mode
-        cl-lib
-        s
+        ;markdown-mode
+        ;ace-jump-mode
+        ;haskell-mode
+        ;cl-lib
+        ;s
         projectile
         sauron
         notify
@@ -278,10 +283,6 @@
 (require 'epa-file)
 (epa-file-enable)
 (epa-global-mail-mode 1) ; not using emacs mail now, but I AM PREPARED
-
-; Ace Jump Mode
-(require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ; ispell / flyspell
 (require 'flyspell)
