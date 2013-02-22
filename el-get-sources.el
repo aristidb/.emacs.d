@@ -1,6 +1,8 @@
 (setq el-get-sources
       '((:name auctex
-               :type elpa)
+               :type http-tar
+               :url "http://ftp.gnu.org/pub/gnu/auctex/auctex-11.87.tar.gz"
+               :options ("xzf"))
         (:name ess
                :description "Emacs Speaks Statistics: statistical programming within Emacs"
                :type http-tar
