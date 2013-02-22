@@ -64,7 +64,14 @@
                :username "bbatsov"
                :pkgname "projectile")
         (:name sauron
-               :depends (alert org-mode))))
+               :depends (alert org-mode))
+        (:name weechat
+               :description "Weechat for Emacs yay"
+               :depends (sauron cl-lib s)
+               :type github
+               :username "the-kenny"
+               :pkgname "weechat.el"
+               :features weechat)))
 
 (if (version-list-< (version-to-list emacs-version) '(24 3 0))
     (add-to-list 'el-get-sources '(:name cl-lib :type elpa))

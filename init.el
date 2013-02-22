@@ -65,9 +65,7 @@
         ace-jump-mode
         projectile
         sauron
-        ; temporary
-        s
-        cl-lib))
+        weechat))
 
 (when (el-get-executable-find "latex")
   (add-to-list 'my:el-get-packages 'auctex)
@@ -200,28 +198,6 @@
 
 ; Nix mode
 (require 'nix-mode)
-
-; Weechat
-(add-to-list 'load-path (concat user-emacs-directory "weechat.el"))
-(require 'weechat)
-
-(setq weechat-host-default "localhost")
-(setq weechat-port-default 9000)
-
-(setq weechat-auto-monitor-buffers
-      '("euirc.#javacore"
-        "euirc.#c++"
-        "freenode.#haskell"
-        "freenode.#haskell-lens"
-        "freenode.#haskell-blah"
-        "freenode.#startups"
-        "freenode.#nixos"))
-
-(setq weechat-notification-mode t)
-(setq weechat-notification-handler 'weechat-sauron-handler)
-
-(global-set-key (kbd "C-c C-b") 'weechat-switch-buffer)
-;(set-face-background 'weechat-highlight-face "dark blue")
 
 ; Auth source
 (require 'auth-source)

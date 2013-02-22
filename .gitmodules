@@ -4,6 +4,3 @@
 [submodule "solarized-emacs"]
 	path = solarized-emacs
 	url = https://github.com/bbatsov/solarized-emacs.git
-[submodule "weechat.el"]
-	path = weechat.el
-	url = git@github.com:the-kenny/weechat.el.git
