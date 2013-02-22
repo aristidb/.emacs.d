@@ -2,7 +2,15 @@
       '((:name auctex
                :type http-tar
                :url "http://ftp.gnu.org/pub/gnu/auctex/auctex-11.87.tar.gz"
-               :options ("xzf"))
+               :options ("xzf")
+               :build `(("./configure"
+                         "--without-texmf-dir"
+                         "--with-lispdir=`pwd`"
+                         ,(concat "--with-emacs=" el-get-emacs))
+                        "make")
+               :load-path ("." "preview")
+               :load  ("tex-site.el" "preview/preview-latex.el")
+               :info "doc")
         (:name ess
                :description "Emacs Speaks Statistics: statistical programming within Emacs"
                :type http-tar
