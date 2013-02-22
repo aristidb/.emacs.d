@@ -1,6 +1,3 @@
 [submodule "elisp-utils"]
 	path = elisp-utils
 	url = git@github.com:aristidb/elisp-utils.git
-[submodule "solarized-emacs"]
-	path = solarized-emacs
-	url = https://github.com/bbatsov/solarized-emacs.git
