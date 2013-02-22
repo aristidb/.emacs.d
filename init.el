@@ -53,8 +53,6 @@
 (setq my:el-get-packages
       '(el-get
         codepad
-        reftex
-        auctex
         ess
         magit
         smex
@@ -63,6 +61,10 @@
         js2-mode
         mark-multiple
         unbound))
+
+(when (el-get-executable-find "latex")
+  (add-to-list 'my:el-get-packages 'auctex)
+  (add-to-list 'my:el-get-packages 'reftex))
 
 (el-get 'sync my:el-get-packages)
 
