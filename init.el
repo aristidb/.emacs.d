@@ -54,7 +54,8 @@
         codepad
         reftex
         auctex
-        ess))
+        ess
+        magit))
 
 (el-get 'sync my:el-get-packages)
 
@@ -69,7 +70,7 @@
       '(
         ;auctex
         ;ess
-        magit
+        ;magit
         ;mark-more-like-this ;in MELPA this is part of mark-multiple
         mark-multiple
         gh
@@ -308,12 +309,6 @@
 (define-key haskell-mode-map (kbd "C-c .") 'haskell-align-imports)
 
 (setq haskell-program-name "/home/aristid/dotfiles/scripts/haskell-repl.pl")
-
-; Magit
-(require 'magit)
-; Allow git config to demand magit extensions.
-(add-hook 'magit-mode-hook 'magit-load-config-extensions)
-(global-set-key (kbd "C-x g") 'magit-status)
 
 ; Gist
 (require 'gist)
