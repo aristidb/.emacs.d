@@ -66,6 +66,9 @@
   (add-to-list 'my:el-get-packages 'auctex)
   (add-to-list 'my:el-get-packages 'reftex))
 
+(when (el-get-executable-find "gnuplot")
+  (add-to-list 'my:el-get-packages 'gnuplot-mode))
+
 (when (el-get-executable-find "ghc")
   (add-to-list 'my:el-get-packages 'haskell-mode))
 
@@ -226,11 +229,6 @@
   (c-set-offset 'label 0))
 
 (add-hook 'c-mode-common-hook 'aristid-c-mode-common)
-
-; Gnuplot Mode
-;; these lines enable the use of gnuplot mode
-(autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
-(autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot mode" t)
 
 ;; this line automatically causes all files with the .gp extension to
 ;; be loaded into gnuplot mode
