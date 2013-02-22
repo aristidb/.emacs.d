@@ -58,7 +58,7 @@
                :username "bbatsov"
                :pkgname "projectile")
         (:name sauron
-               :depends org-mode)))
+               :depends (alert org-mode))))
 
 (if (version-list-< (version-to-list emacs-version) '(24 3 0))
     (add-to-list 'el-get-sources '(:name cl-lib :type elpa))

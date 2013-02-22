@@ -1,4 +1,5 @@
 (require 'sauron)
+(require 'alert)
 
 (setq sauron-separate-frame nil)
 (global-set-key (kbd "C-c s") 'sauron-toggle-hide-show)

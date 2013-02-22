@@ -107,8 +107,8 @@
         ;s
         ;projectile
         ;sauron
-        notify
-        alert
+        ;notify
+        ;alert
         ))
 
 (defun preload-packages-installed-p ()
@@ -321,6 +321,3 @@
 ; Auth source
 (require 'auth-source)
 (add-to-list 'auth-sources (concat user-emacs-directory "authinfo.gpg"))
-
-; Alert.el
-(require 'alert)
