@@ -294,9 +294,6 @@
 (setq org-mobile-inbox-for-pull (concat org-directory "mobile.org"))
 (run-with-timer 0 (* 30 60) 'org-mobile-pull)
 
-; ESS
-(require 'ess-site)
-
 ; Haskell
 ;(load (concat user-emacs-directory "haskell-mode-2.8.0/haskell-site-file"))
 ;(load "haskell-site-file")
