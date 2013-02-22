@@ -58,23 +58,25 @@
         sauron
         weechat))
 
-(when (el-get-executable-find "latex")
-  (add-to-list 'my:el-get-packages 'auctex)
-  (add-to-list 'my:el-get-packages 'reftex))
-
-(when (el-get-executable-find "gnuplot")
-  (add-to-list 'my:el-get-packages 'gnuplot-mode))
-
-(when (el-get-executable-find "ghc")
-  (add-to-list 'my:el-get-packages 'haskell-mode))
-
 (el-get 'sync '(elisp-utils))
-(el-get nil my:el-get-packages)
 
 ; Add some paths for executables
 (add-exec-paths '("~/.nix-profile/bin" "~/.cabal/bin" "/usr/texbin"))
 (when (eq system-type 'darwin)
   (add-exec-paths '("/usr/local/bin")))
+
+; CONTINUE EL-Get
+(when (executable-find "latex")
+  (add-to-list 'my:el-get-packages 'auctex)
+  (add-to-list 'my:el-get-packages 'reftex))
+
+(when (executable-find "gnuplot")
+  (add-to-list 'my:el-get-packages 'gnuplot-mode))
+
+(when (executable-find "ghc")
+  (add-to-list 'my:el-get-packages 'haskell-mode))
+
+(el-get nil my:el-get-packages)
 
 ; Theme (not for Emacs 23)
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
