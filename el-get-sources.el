@@ -51,7 +51,14 @@
                :description "The long lost Emacs string manipulation library."
                :type github
                :username "magnars"
-               :pkgname "s.el")))
+               :pkgname "s.el")
+        (:name projectile
+               :description "Project Interaction Library for Emacs"
+               :type github
+               :username "bbatsov"
+               :pkgname "projectile")
+        (:name sauron
+               :depends org-mode)))
 
 (if (version-list-< (version-to-list emacs-version) '(24 3 0))
     (add-to-list 'el-get-sources '(:name cl-lib :type elpa))
