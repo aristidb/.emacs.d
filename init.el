@@ -55,7 +55,8 @@
         reftex
         auctex
         ess
-        magit))
+        magit
+        smex))
 
 (el-get 'sync my:el-get-packages)
 
@@ -75,7 +76,7 @@
         mark-multiple
         gh
         gist
-        smex
+        ;smex
         js2-mode
         unbound
         markdown-mode
@@ -165,18 +166,6 @@
 ; ido
 (require 'ido)
 (ido-mode t)
-
-; SMEX (= ido for M-x)
-(require 'smex)
-(add-hook 'after-init-hook 'smex-initialize)
-
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c M-x") 'smex-update-and-run)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-(smex-initialize) ; only needed when you load this file with M-x eval-buffer
 
 ; TRAMP (some of it from http://tsdh.wordpress.com/2008/08/20/re-open-read-only-files-as-root-automagically/)
 (require 'tramp)
