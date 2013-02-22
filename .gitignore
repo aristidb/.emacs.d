@@ -10,3 +10,4 @@ tramp
 elpa/*
 eshell/*
 var/*
+el-get/*
