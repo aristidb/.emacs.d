@@ -53,7 +53,8 @@
       '(el-get
         codepad
         reftex
-        auctex))
+        auctex
+        ess))
 
 (el-get 'sync my:el-get-packages)
 
@@ -67,7 +68,7 @@
 (setq preload-packages
       '(
         ;auctex
-        ess
+        ;ess
         magit
         ;mark-more-like-this ;in MELPA this is part of mark-multiple
         mark-multiple
