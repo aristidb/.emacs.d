@@ -80,7 +80,6 @@
 (el-get 'sync my:el-get-packages)
 
 ; Theme (not for Emacs 23)
-(add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
 (load-theme 'tango-dark t)
 
