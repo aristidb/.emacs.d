@@ -13,8 +13,17 @@
                          '("all"))
                :load-path ("lisp")
                :features ess-site)
+	(:name pcache
+	       :description "persistent caching for Emacs"
+	       :type github
+	       :pkgname "sigma/pcache")
+	(:name logito
+	       :description "tiny logging framework for Emacs"
+	       :type github
+	       :pkgname "sigma/logito")
 	(:name gh
 	       :description "Github API for Emacs"
+	       :depends (pcache logito)
 	       :type github
 	       :pkgname "sigma/gh.el"
 	       :features gh)
