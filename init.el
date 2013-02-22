@@ -81,48 +81,6 @@
 
 (el-get 'sync my:el-get-packages)
 
-; ELPA
-(require 'package)
-(package-initialize)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(defvar preload-packages '())
-(setq preload-packages
-      '(
-        ;auctex
-        ;ess
-        ;magit
-        ;mark-more-like-this ;in MELPA this is part of mark-multiple
-        ;mark-multiple
-        ;gh
-        ;gist
-        ;smex
-        ;js2-mode
-        ;unbound
-        ;markdown-mode
-        ;ace-jump-mode
-        ;haskell-mode
-        ;cl-lib
-        ;s
-        ;projectile
-        ;sauron
-        ;notify
-        ;alert
-        ))
-
-(defun preload-packages-installed-p ()
-  (loop for p in preload-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
-
-(unless (preload-packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (message "%s" " done.")
-  (loop for p in preload-packages
-        when (not (package-installed-p p)) do (package-install p)))
-
 ; Theme (not for Emacs 23)
 (add-to-list 'load-path (concat user-emacs-directory "solarized-emacs/"))
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))

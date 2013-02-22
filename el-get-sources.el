@@ -52,8 +52,14 @@
                :type github
                :username "magnars"
                :pkgname "s.el")
+	(:name dash
+	       :description "A modern list library for Emacs"
+	       :type github
+	       :username "magnars"
+	       :pkgname "dash.el")
         (:name projectile
                :description "Project Interaction Library for Emacs"
+	       :depends (s dash)
                :type github
                :username "bbatsov"
                :pkgname "projectile")
