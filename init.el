@@ -59,7 +59,10 @@
         magit
         smex
         gist
-        org-mode))
+        org-mode
+        js2-mode
+        mark-multiple
+        unbound))
 
 (el-get 'sync my:el-get-packages)
 
@@ -76,12 +79,12 @@
         ;ess
         ;magit
         ;mark-more-like-this ;in MELPA this is part of mark-multiple
-        mark-multiple
+        ;mark-multiple
         ;gh
         ;gist
         ;smex
-        js2-mode
-        unbound
+        ;js2-mode
+        ;unbound
         markdown-mode
         ace-jump-mode
         haskell-mode
@@ -284,20 +287,6 @@
 (when (eq system-type 'darwin)
   (setq twelf-root "/Applications/Twelf/")
   (load (concat twelf-root "emacs/twelf-init.el")))
-
-; Mark Multiple / Mark More Like This
-(require 'mark-more-like-this)
-(global-set-key (kbd "C-<") 'mark-previous-like-this)
-(global-set-key (kbd "C->") 'mark-next-like-this)
-(global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
-(global-set-key (kbd "C-*") 'mark-all-like-this)
-
-; JS2 Mode
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-; Unbound (find unbound shortcuts)
-(require 'unbound)
 
 ; EPA/EPG (EasyPG Assistant for GnuGPG)
 (require 'epa)
