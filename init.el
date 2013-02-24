@@ -44,7 +44,6 @@
 (setq my:el-get-packages
       '(el-get
         codepad
-        ess
         magit
         smex
         gist
@@ -75,6 +74,9 @@
 
 (when (executable-find "ghc")
   (add-to-list 'my:el-get-packages 'haskell-mode))
+
+(when (executable-find "R")
+  (add-to-list 'my:el-get-packages 'ess))
 
 (el-get nil my:el-get-packages)
 
