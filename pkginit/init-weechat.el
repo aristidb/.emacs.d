@@ -16,7 +16,7 @@
 (setq weechat-notification-mode t)
 (setq weechat-notification-handler 'weechat-sauron-handler)
 
-(global-set-key (kbd "C-c C-b") 'weechat-switch-buffer)
-;(set-face-background 'weechat-highlight-face "dark blue")
+(global-set-key (kbd "C-,") 'weechat-switch-buffer)
+(global-set-key (kbd "C-.") 'weechat-monitor-buffer)
 
 (add-hook 'weechat-mode-hook 'visual-line-mode)
