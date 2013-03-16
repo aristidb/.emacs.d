@@ -55,7 +55,8 @@
         ace-jump-mode
         projectile
         sauron
-        weechat))
+        weechat
+        buffer-move))
 
 (el-get 'sync '(elisp-utils))
 
