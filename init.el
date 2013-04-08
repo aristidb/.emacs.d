@@ -207,3 +207,37 @@
 ; TRAMP
 (load (concat user-emacs-directory "init/init-tramp.el"))
 
+; Compile-Buffer
+(setq compilation-scroll-output 'first-error)
+ 
+(defmacro my-compile-command (compiler flags)
+  "Create mode hook to generate `compile-command'."
+  `(lambda ()
+     (flyspell-prog-mode)
+     (unless (or (file-exists-p "Makefile")
+                 (local-variable-p 'compile-command)
+                 (not buffer-file-name))
+       (set (make-local-variable 'compile-command)
+            (format "%s %s %s"
+                    ,compiler ,flags
+                    (file-name-nondirectory buffer-file-name))))))
+(add-hook 'c-mode-hook (my-compile-command
+                        (or (getenv "CC") "gcc-4.8")
+                        (or (getenv "CFLAGS")
+                            "-pipe -std=c11 -pedantic-errors -Wall -Wextra -g3")))
+(add-hook 'c++-mode-hook (my-compile-command
+                          (or (getenv "CXX") "g++-4.8")
+                          (or (getenv "CXXFLAGS")
+                              "-pipe -std=c++11 -pedantic-errors -Wall -Wextra -Weffc++ -g3")))
+(add-hook 'fortran-mode-hook (my-compile-command
+                              (or (getenv "FORTRANC") "gfortran")
+                              (or (getenv "FORTRANFLAGS")
+                                  "-pipe -pedantic-errors -Wall -Wextra -g3")))
+ 
+(global-set-key (kbd "C-c C-g") 'compile)
+(global-set-key (kbd "C-c g") '(lambda ()
+                        (interactive)
+                        (when (file-exists-p "Makefile")
+                          (let ((tmp compile-command))
+                            (compile "make clean")
+                            (setq compile-command tmp)))))
